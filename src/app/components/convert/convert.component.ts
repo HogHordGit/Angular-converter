@@ -1,41 +1,66 @@
-import { Component } from '@angular/core';
-import { CURR } from '../mock/cur-values.mock';
+import { HttpService } from 'src/app/shared/services/http.service';
+import { Component, OnInit } from '@angular/core';
+import { CURRMOCKDATA } from '../../mock/cur-values.mock';
 import { CurValues } from 'src/app/shared/types/cur-values.interface';
+import { CurrencyInterface } from 'src/app/shared/types/currency.interface';
 
 @Component({
   selector: 'app-convert',
   templateUrl: './convert.component.html',
   styleUrls: ['./convert.component.scss']
 })
-export class ConvertComponent {
+export class ConvertComponent implements OnInit {
   
-  displayValues: CurValues[] = CURR;
+  constructor(private http: HttpService) { }
 
-  currency1: string = 'UAH';
-  currency2: string = 'USD';
-  currency1Value: number = 0;
-  currency2Value: number = 0;
+  displayValues: CurValues[] = CURRMOCKDATA;
 
-  currencyRates: any = {
-    'UAH-USD': 27, // Примерный курс гривны к доллару
-    'UAH-EUR': 31, // Примерный курс гривны к евро
-    'USD-UAH': 1 / 27, // Обратный курс доллара к гривне
-    'USD-EUR': 1 / 31, // Примерный курс доллара к евро
-    'EUR-UAH': 1 / 31, // Обратный курс евро к гривне
-    'EUR-USD': 1 / 31 // Обратный курс евро к доллару
-  };
+  currency_1: string = 'UAH';
+  currency_2: string = 'USD';
+  currencyValue_1: number = 0;
+  currencyValue_2: number = 0;
 
-  convertCurrency(conversionType: string) {
-    if (conversionType === '1') {
-      const rateKey = `${this.currency1}-${this.currency2}`;
-      if (this.currencyRates.hasOwnProperty(rateKey)) {
-        this.currency2Value = this.currency1Value * this.currencyRates[rateKey];
+  currencyRates: any = {};
+
+  convertCurrency(conversinType: string) {
+    if (conversinType === 'first-input') {
+      const key = `${this.currency_1}-${this.currency_2}`;
+
+      if (this.currencyRates.hasOwnProperty(key)) {
+        this.currencyValue_2 = Number((this.currencyValue_1 * this.currencyRates[key]).toFixed(2));
       }
-    } else if (conversionType === '2') {
-      const rateKey = `${this.currency2}-${this.currency1}`;
-      if (this.currencyRates.hasOwnProperty(rateKey)) {
-        this.currency1Value = this.currency2Value * this.currencyRates[rateKey];
-      }
+    } else if (conversinType === 'second-input') {
+        const key = `${this.currency_1}-${this.currency_2}`;
+
+        if (this.currencyRates.hasOwnProperty(key)) {
+          this.currencyValue_1 = Number((this.currencyValue_2 * this.currencyRates[key]).toFixed(2));
+        }
     }
+  }
+
+  ngOnInit(): void {
+    this.getData();
+  }
+
+  getData(): void {
+    this.http.readData().subscribe((data: any) => {
+      let usd_currency = 0;
+      let euro_currency = 0;
+
+      data.forEach((obj: CurrencyInterface) => {
+        if (obj.cc && obj.cc == "USD") usd_currency = obj.rate;
+        if (obj.cc && obj.cc == "EUR") euro_currency = obj.rate;
+      });
+
+      this.currencyRates["UAH-USD"] = 1 / usd_currency;
+      this.currencyRates["UAH-EUR"] = 1 / euro_currency;
+      this.currencyRates["USD-UAH"] = usd_currency;
+      this.currencyRates["USD-EUR"] = euro_currency / usd_currency;
+      this.currencyRates["EUR-UAH"] = euro_currency;
+      this.currencyRates["EUR-USD"] = usd_currency / euro_currency;
+      this.currencyRates["UAH-UAH"] = 1;
+      this.currencyRates["USD-USD"] = 1;
+      this.currencyRates["EUR-EUR"] = 1;
+    });
   }
 }

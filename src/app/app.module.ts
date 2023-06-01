@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 import { AppComponent } from './app.component';
 import { ConvertComponent } from './components/convert/convert.component';
@@ -20,7 +21,8 @@ import { HeaderComponent } from './components/header/header.component';
     BrowserAnimationsModule,
     MatSelectModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

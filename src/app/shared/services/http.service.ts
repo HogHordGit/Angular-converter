@@ -8,9 +8,6 @@ const url: string = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchang
 })
 export class HttpService {
 
-  search_usd: string = "USD";
-  search_euro: string = "EUR";
-
   constructor(private http: HttpClient) { }
 
   readData(): any {

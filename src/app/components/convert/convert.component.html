@@ -12,30 +12,38 @@
             <div class="content__converter converter">
                 <div class="converter__currency">
                     
-                    <div>
-                        <h2>Currency Converter</h2>
-                      
                         <div>
-                          <label for="currency1">Currency 1:</label>
-                          <input type="number" id="currency1" [(ngModel)]="currency1Value" (ngModelChange)="convertCurrency('1')" />
-                          <select [(ngModel)]="currency1" (ngModelChange)="convertCurrency('1')">
-                            <option value="UAH">UAH</option>
-                            <option value="USD">USD</option>
-                            <option value="EUR">EUR</option>
-                          </select>
+                          <mat-form-field class="example-full-width">
+                            <mat-label>Enter number</mat-label>
+                            <input matInput type="number" [(ngModel)]="currencyValue_1" (ngModelChange)="convertCurrency('first-input')">
+                          </mat-form-field>
+
+                          <mat-form-field>
+                            <mat-label>Favorite food</mat-label>
+                            <mat-select [(ngModel)]="currency_1" (ngModelChange)="convertCurrency('second-input')">
+                              <mat-option *ngFor="let cur of displayValues" [value]="cur.value">
+                                {{cur.viewValue}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
                         </div>
                       
                         <div>
-                          <label for="currency2">Currency 2:</label>
-                          <input type="number" id="currency2" [(ngModel)]="currency2Value" (ngModelChange)="convertCurrency('2')" />
-                          <select [(ngModel)]="currency2" (ngModelChange)="convertCurrency('2')">
-                            <option value="UAH">UAH</option>
-                            <option value="USD">USD</option>
-                            <option value="EUR">EUR</option>
-                          </select>
+                          <mat-form-field class="example-full-width">
+                            <mat-label>Enter number</mat-label>
+                            <input matInput type="number" [(ngModel)]="currencyValue_2" (ngModelChange)="convertCurrency('first-input')">
+                          </mat-form-field>
+
+                          <mat-form-field>
+                            <mat-label>Favorite food</mat-label>
+                            <mat-select [(ngModel)]="currency_2" (ngModelChange)="convertCurrency('second-input')">
+                              <mat-option *ngFor="let cur of displayValues" [value]="cur.value">
+                                {{cur.viewValue}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
                         </div>
-                    </div>
-                    
+
                 </div>
             </div>
         </div>
