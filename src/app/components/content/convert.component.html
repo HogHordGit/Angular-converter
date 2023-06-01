@@ -10,39 +10,41 @@
     
         <div class="content__converter-holder">
             <div class="content__converter converter">
-                <div class="converter__currency">
+                <div class="converter__currency currency">
                     
-                        <div>
-                          <mat-form-field class="example-full-width">
+                    <div class="currency__first-in">
+                        <mat-form-field class="example-full-width">
                             <mat-label>Enter number</mat-label>
                             <input matInput type="number" [(ngModel)]="currencyValue_1" (ngModelChange)="convertCurrency('first-input')">
-                          </mat-form-field>
+                        </mat-form-field>
 
-                          <mat-form-field>
-                            <mat-label>Favorite food</mat-label>
+                        <mat-form-field class="currency__select">
                             <mat-select [(ngModel)]="currency_1" (ngModelChange)="convertCurrency('second-input')">
-                              <mat-option *ngFor="let cur of displayValues" [value]="cur.value">
+                                <mat-option *ngFor="let cur of displayValues" [value]="cur.value">
                                 {{cur.viewValue}}
-                              </mat-option>
+                                </mat-option>
                             </mat-select>
-                          </mat-form-field>
-                        </div>
+                        </mat-form-field>
+                    </div>
                       
-                        <div>
-                          <mat-form-field class="example-full-width">
+                    <div class="currency__changer">
+                        <img src="../assets/img/main/change.png" (click)="converChange()" alt="">
+                    </div>
+
+                    <div class="currency__second-in">
+                        <mat-form-field class="example-full-width">
                             <mat-label>Enter number</mat-label>
                             <input matInput type="number" [(ngModel)]="currencyValue_2" (ngModelChange)="convertCurrency('first-input')">
-                          </mat-form-field>
+                        </mat-form-field>
 
-                          <mat-form-field>
-                            <mat-label>Favorite food</mat-label>
+                        <mat-form-field class="currency__select">
                             <mat-select [(ngModel)]="currency_2" (ngModelChange)="convertCurrency('second-input')">
-                              <mat-option *ngFor="let cur of displayValues" [value]="cur.value">
-                                {{cur.viewValue}}
-                              </mat-option>
+                                <mat-option *ngFor="let cur of displayValues" [value]="cur.value">
+                                    {{cur.viewValue}}
+                                </mat-option>
                             </mat-select>
-                          </mat-form-field>
-                        </div>
+                        </mat-form-field>
+                    </div>
 
                 </div>
             </div>

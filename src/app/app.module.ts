@@ -6,15 +6,17 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 
 import { AppComponent } from './app.component';
-import { ConvertComponent } from './components/convert/convert.component';
+import { ConvertComponent } from './components/content/convert.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
+import { ConvertationComponent } from './components/convertation/convertation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConvertComponent,
     HeaderComponent,
+    ConvertationComponent,
   ],
   imports: [
     BrowserModule,

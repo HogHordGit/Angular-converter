@@ -1,7 +1,7 @@
 import { HttpService } from 'src/app/shared/services/http.service';
 import { Component, OnInit } from '@angular/core';
 import { CURRMOCKDATA } from '../../mock/cur-values.mock';
-import { CurValues } from 'src/app/shared/types/cur-values.interface';
+import { CurSelectInterface } from 'src/app/shared/types/cur-values.interface';
 import { CurrencyInterface } from 'src/app/shared/types/currency.interface';
 
 @Component({
@@ -13,7 +13,7 @@ export class ConvertComponent implements OnInit {
   
   constructor(private http: HttpService) { }
 
-  displayValues: CurValues[] = CURRMOCKDATA;
+  displayValues: CurSelectInterface[] = CURRMOCKDATA;
 
   currency_1: string = 'UAH';
   currency_2: string = 'USD';
@@ -62,5 +62,17 @@ export class ConvertComponent implements OnInit {
       this.currencyRates["USD-USD"] = 1;
       this.currencyRates["EUR-EUR"] = 1;
     });
+  }
+
+  converChange(): void {
+    const f_value = this.currency_1;
+    const s_value = this.currency_2;
+    this.currency_1 = s_value;
+    this.currency_2 = f_value;
+
+    const f_num = this.currencyValue_1;
+    const s_num = this.currencyValue_2;
+    this.currencyValue_1 = s_num;
+    this.currencyValue_2 = f_num;
   }
 }

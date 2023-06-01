@@ -50,3 +50,41 @@
         border-radius: 15px;
     }
 }
+
+.currency {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+
+    &__changer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 55px;
+        
+        & img {
+            height: 40px;
+            width: 40px;
+            cursor: pointer;
+        }
+    }
+    &__first-in {
+        display: flex;
+        position: relative;
+        width: 100%;
+    }
+    &__second-in {
+        display: flex;
+        position: relative;
+        width: 100%;
+    }
+    &__select {
+        position: absolute;
+        width: 85px;
+        right: 0;
+    }
+}
+
+.example-full-width {
+    width: 100%;
+}

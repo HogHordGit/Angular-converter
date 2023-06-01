@@ -1,22 +1,41 @@
 .header {
     &__holder {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
     }
     &__logo {
         display: flex;
         align-items: center;
         gap: 15px;
+
+        & img {
+            @media (max-width: 650px) {
+                width: 30px;
+                height: 30px;
+            }
+        }
     }
     &__text {
         color: #ffffff;
         font-size: 25px;
+
+        @media (max-width: 650px) {
+            font-size: 20px;
+        }
     }
     &__right-side {
         height: 100px;
         display: flex;
         align-items: center;
         gap: 50px;
+
+        @media (max-width: 600px) {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: center;
+        }
     }
     &__left-side {
         height: 100px;

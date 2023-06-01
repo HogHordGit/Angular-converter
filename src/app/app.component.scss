@@ -10,4 +10,8 @@
 .header {
     height: 100px;
     width: 100%;
+
+    @media (max-width: 600px) {
+        height: 200px;
+    }
 }

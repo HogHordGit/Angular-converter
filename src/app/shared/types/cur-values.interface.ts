@@ -1,4 +1,4 @@
-export interface CurValues {
+export interface CurSelectInterface {
     value: string;
     viewValue: string;
 }
