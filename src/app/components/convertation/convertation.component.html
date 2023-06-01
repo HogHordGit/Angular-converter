@@ -1,0 +1,35 @@
+<div class="converter__currency currency">
+    <div class="currency__first-in">
+        <mat-form-field class="example-full-width">
+            <mat-label>Enter number</mat-label>
+            <input matInput type="number" [(ngModel)]="currencyValue_1" (ngModelChange)="convertCurrency('first-input')">
+        </mat-form-field>
+
+        <mat-form-field class="currency__select">
+            <mat-select [(ngModel)]="currency_1" (ngModelChange)="convertCurrency('first-input')">
+                <mat-option class="ziba" *ngFor="let cur of displayValues" [value]="cur.value">
+                    {{cur.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    
+    <div class="currency__changer">
+        <img src="../assets/img/main/change.png" (click)="convertChange()" alt="">
+    </div>
+
+    <div class="currency__second-in">
+        <mat-form-field class="example-full-width">
+            <mat-label>Enter number</mat-label>
+            <input matInput type="number" [(ngModel)]="currencyValue_2" (ngModelChange)="convertCurrency('second-input')">
+        </mat-form-field>
+
+        <mat-form-field class="currency__select">
+            <mat-select [(ngModel)]="currency_2" (ngModelChange)="convertCurrency('second-input')">
+                <mat-option *ngFor="let cur of displayValues" [value]="cur.value">
+                    {{cur.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>

@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 
 import { AppComponent } from './app.component';
-import { ConvertComponent } from './components/content/convert.component';
+import { ContentComponent } from './components/content/content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
 import { ConvertationComponent } from './components/convertation/convertation.component';
@@ -14,7 +14,7 @@ import { ConvertationComponent } from './components/convertation/convertation.co
 @NgModule({
   declarations: [
     AppComponent,
-    ConvertComponent,
+    ContentComponent,
     HeaderComponent,
     ConvertationComponent,
   ],
