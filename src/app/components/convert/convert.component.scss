@@ -1,0 +1,52 @@
+.content {
+    &__holder {
+        display: grid;
+        grid-template-areas: "a1 a2";
+        grid-template-columns: 1fr 0.7fr;
+        height: calc(100vh - 140px);
+
+        @media (max-width: 1170px) {
+            height: auto;
+            grid-template-columns: 1fr;
+            grid-template-areas: "a1"
+                                 "a2";
+        }
+    }
+    &__left-side {
+        grid-area: a1;
+        padding-right: 20px;
+    }
+    &__right-side {
+        grid-area: a2;
+    }
+    &__image {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center center;
+        background-image: url("../../../assets/img/main/phone_converter.png");
+        max-height: 500px;
+    }
+    &__title {
+        font-size: 70px;
+        line-height: 80px;
+        color: #fff;
+    }
+    &__description {
+        color: #fff;
+    }
+    &__converter-holder {
+        width: 100%;
+        height: calc(100% - 250px);
+        display: flex;
+        align-items: center;
+        max-height: 350px;
+    }
+    &__converter {
+        margin-top: 40px;
+        background-color: #fff;
+        width: 100%;
+        height: 220px;
+        border-radius: 15px;
+    }
+}

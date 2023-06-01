@@ -1,0 +1,67 @@
+.header {
+    &__holder {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__logo {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    &__text {
+        color: #ffffff;
+        font-size: 25px;
+    }
+    &__right-side {
+        height: 100px;
+        display: flex;
+        align-items: center;
+        gap: 50px;
+    }
+    &__left-side {
+        height: 100px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.menu {
+    &__list {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+    }
+    &__item {
+        font-size: 20px;
+        color: #fff;
+
+        & a {
+            text-decoration: none;
+            color: #fff;
+        }
+        & a:hover {
+            color: rgb(180, 180, 180);
+        }
+    }
+}
+
+.currency {
+    display: flex;
+    gap: 20px;
+
+    &__block {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        color: #fff;
+        font-size: 20px;
+        border: 1px solid #fff;
+        border-radius: 10px;
+        padding: 5px 10px;
+
+        & img {
+            width: 35px;
+            height: 35px;
+        }
+    }
+}
